@@ -17,20 +17,7 @@ app.listen(3000, function() {
     console.log('listening on 3000')
 })  
 
-//Hello World Test
-// We normally abbreviate `request` to `req` and `response` to `res`.
-// app.get('/', function(req, res) {
-//     res.send('Hello World')
-//   })
-
-// Make sure you place body-parser before your CRUD handlers!
 app.use(bodyParser.urlencoded({ extended: true }))
-
-//Some test code to print things on submission
-// app.post('/quotes', (req, res) => {
-//     // console.log('Hellooooooooooooooooo!')
-//     console.log(req.body)
-//   })
 
 const connectionString = 'mongodb+srv://Amber:hLfhnhYG41oW9vhe@cluster0.5gjfn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
@@ -58,14 +45,5 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           .catch(/* ... */)
       })
                   
-      //Old display using static html before implementing the EJS stuff
-      // app.get('/', (req, res) => {
-      //   res.sendFile(__dirname + '/index.html');
-      //   db.collection('quotes').find().toArray()
-      //   .then(results => {
-      //     console.log(results)
-      //   })
-      //   .catch(error => console.error(error))
-      //   }) 
   })
   .catch(error => console.error(error))
