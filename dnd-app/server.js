@@ -19,12 +19,12 @@ app.listen(3000, function() {
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-const connectionString = 'mongodb+srv://Amber:hLfhnhYG41oW9vhe@cluster0.5gjfn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const connectionString = 'mongodb+srv://acarlso1:FSSZfskcR6EPoMzq@sw-dnd.s9vcx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
-    const db = client.db('star-wars-quotes')
-    const quotesCollection = db.collection('quotes')
+    const db = client.db('DnDRules')
+    const quotesCollection = db.collection('Races')
 
     //Redirect back to '/'
     app.post('/quotes', (req, res) => {
@@ -38,9 +38,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
       //Render Method
       app.get('/', (req, res) => {
-        db.collection('quotes').find().toArray()
+        db.collection('Races').find().toArray()
           .then(results => {
             res.render('index.ejs', { quotes: results })
+            console.log(quotesCollection)
           })
           .catch(/* ... */)
       })

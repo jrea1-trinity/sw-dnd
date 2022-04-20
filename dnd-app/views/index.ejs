@@ -22,10 +22,14 @@
     <!-- Loop through quotes -->
     <% for(var i = 0; i < quotes.length; i++) {%>
         <li class="quote">
-        <!-- Output name from the iterated quote object -->
-        <span><%= quotes[i].name %></span>:
-        <!-- Output quote from the iterated quote object -->
-        <span><%= quotes[i].quote %></span>
+        <!-- Output race from the iterated quote object -->
+        <span><%= quotes[i].race %></span>:
+        <!-- Output asi from the iterated quote object -->
+        <span><%= quotes[i].asi %></span>
+        <!-- Output size from the iterated quote object -->
+        <span><%= quotes[i].size %></span>
+        <!-- Output speed from the iterated quote object -->
+        <span><%= quotes[i].speed %></span>
         </li>
     <% } %>
     </ul>
