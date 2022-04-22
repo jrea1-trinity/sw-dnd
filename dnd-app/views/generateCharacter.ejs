@@ -12,6 +12,10 @@
         .center {
             text-align: center;
         }
+        .dropdown {
+            display: block;
+            width: 100px;
+        }
     </style>
     <meta charset="UTF-8" />
     <title>Interactive DnD Character Sheet</title>
@@ -65,12 +69,14 @@
     <div class="child">
         <h2> Races </h2>
 
-        <label for="raceDrop">Choose a Race</label>
-        <select name="raceDrop" id="nameDrop">
-          <option value="blank">-----</option>
-          <option value="human">Human</option>
-          <option value="dwarf">Dwarf</option>
-        </select>
+        <div>
+          <label for="raceDrop">Choose a Race</label>
+          <select name="raceDrop" id="raceDrop" class="dropdown">
+            <option value="blank">-----</option>
+            <option value="human">Human</option>
+            <option value="dwarf">Dwarf</option>
+          </select>
+      </div>
         <!-- <ul class="races"> -->
         <!-- Loop through races -->
         <!-- <% for(var i = 0; i < races.length; i++) {%> -->
