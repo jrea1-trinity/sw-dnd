@@ -1,0 +1,42 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--CSS styling for the entire HTML file-->
+    <style>
+        body {background-color: dimgray; color: white;}
+    </style>
+    <meta charset="UTF-8" />
+    <title>Interactive DnD Character Sheet</title>
+  </head>
+
+  <body>
+    <h1 style="text-align:center">Generate Your Character</h1>
+
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" placeholder="quote" name="quote" />
+      <!-- <button type="submit">Submit</button> -->
+    </form>
+    <!-- <%= quotes %> -->
+
+    <h2> Quotes </h2>
+
+    <ul class="quotes">
+    <!-- Loop through quotes -->
+    <% for(var i = 0; i < quotes.length; i++) {%>
+        <li class="quote">
+        <!-- Output race from the iterated quote object -->
+        <span><%= quotes[i].race %></span>:
+        <!-- Output asi from the iterated quote object -->
+        <span><%= quotes[i].asi %></span>
+        <!-- Output size from the iterated quote object -->
+        <span><%= quotes[i].size %></span>
+        <!-- Output speed from the iterated quote object -->
+        <span><%= quotes[i].speed %></span>
+        </li>
+    <% } %>
+    </ul>
+    
+  </body>
+</html>

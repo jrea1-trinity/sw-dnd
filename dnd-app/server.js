@@ -40,7 +40,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       app.get('/', (req, res) => {
         db.collection('Races').find().toArray()
           .then(results => {
-            res.render('index.ejs', { quotes: results })
+            res.render('generateCharacter.ejs', { quotes: results })
             console.log(quotesCollection)
           })
           .catch(/* ... */)
