@@ -23,10 +23,7 @@ jobs:
       - run: npm install --global mocha
       - run: npm install --save-dev mocha
       - name: mocha test
-        working-directory: /.github/workflows
-        run: mocha test/server.test.js
-        env:
-          SH_FILE_PATH: './test.sh'
+        run: mocha test
 
 
 ## second job: deploy Heroku
