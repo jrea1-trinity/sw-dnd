@@ -24,6 +24,7 @@ jobs:
       - run: npm install --save-dev mocha
       - name: mocha test
         run: ls -rlth $GITHUB_WORKSPACE/.github/workflows/test
+      - run: echo $GITHUB_WORKSPACE
 
 
 ## second job: deploy Heroku
