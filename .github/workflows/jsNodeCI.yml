@@ -25,13 +25,3 @@ jobs:
       - name: mocha test
         run: mocha $GITHUB_WORKSPACE/.github/workflows/test/*.js
   
-
-## second job: deploy Heroku
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: dentarg/heroku@v1
-        with:
-          app: sw-dnd-trinity
-          key: ${{ secrets.HEROKU_API_KEY }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
