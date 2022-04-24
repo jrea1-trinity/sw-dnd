@@ -22,7 +22,7 @@ jobs:
         # install mocha test framework
       - run: npm install --global mocha
       - run: npm install --save-dev mocha
-      - run: mocha ../dnd-app/test/server.test.js
+      - run: mocha test/server.test.js
 
 
 ## second job: deploy Heroku
