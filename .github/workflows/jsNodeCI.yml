@@ -29,17 +29,9 @@ jobs:
 ## second job: deploy Heroku
   deploy:
     runs-on: ubuntu-latest
-    # ? needs: test-unit
-    # if: github.ref == 'refs/heads/develop'
     steps:
-      - uses: actions/checkout@v2
-      # possibly setup node action here...
-      # possibly cache of node modules action here...
-      # build steps here...
-      - uses: onekiloparsec/heroku-node-deploy-subfolder@v1.1.0
+      - uses: dentarg/heroku@v1
         with:
-          api_key: ${{secrets.HEROKU_API_KEY}}
-          email: "tpham3@trinity.edu"
-          app_name: "sw-dnd-trinity"
-          heroku_branch: "master"
-          subfolder: "dist-staging" # for staging process in Heroku, wll change to "dist-prod" if production run 
+          app: sw-dnd-trinity
+          key: ${{ secrets.HEROKU_API_KEY }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
