@@ -24,11 +24,11 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
     const db = client.db('DnDRules')
-    const quotesCollection = db.collection('Races')
+    const racesCollection = db.collection('Races')
 
     //Redirect back to '/'
-    app.post('/quotes', (req, res) => {
-        quotesCollection.insertOne(req.body)
+    app.post('/races', (req, res) => {
+        racesCollection.insertOne(req.body)
           .then(result => {
             // console.log(result)
             res.redirect('/')
@@ -40,8 +40,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       app.get('/', (req, res) => {
         db.collection('Races').find().toArray()
           .then(results => {
-            res.render('index.ejs', { quotes: results })
-            console.log(quotesCollection)
+            res.render('generateCharacter.ejs', { races: results })
+            console.log(racesCollection)
           })
           .catch(/* ... */)
       })
