@@ -24,7 +24,9 @@ jobs:
       - run: npm install --save-dev mocha
       - name: mocha test
         run: ls -rlth .. 
-      - run: ls -rlth ../.. #mocha /home/runner/work/sw-dnd/.github/workflows/test
+      - run: ls -rlth ../..
+      - run: ls -rlth ../../..
+      - run: ls -rlth ../../../.. #mocha /home/runner/work/sw-dnd/.github/workflows/test
 
 
 ## second job: deploy Heroku
