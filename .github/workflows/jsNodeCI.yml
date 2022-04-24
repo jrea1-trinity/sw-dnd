@@ -29,14 +29,17 @@ jobs:
 ## second job: deploy Heroku
   deploy:
     runs-on: ubuntu-latest
-    needs: [build]
+    # ? needs: test-unit
+    if: github.ref == 'refs/heads/develop'
     steps:
       - uses: actions/checkout@v2
-      - name: Create Heroku remote
-        run: heroku create -a example-app
-        
-      - uses: akhileshns/heroku-deploy@v3.12.12 
+      # possibly setup node action here...
+      # possibly cache of node modules action here...
+      # build steps here...
+      - uses: onekiloparsec/heroku-node-deploy-subfolder@v1.1.0
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "sw-dnd-trinity"
-          heroku_email: "tpham3@trinity.edu"
+          api_key: ${{secrets.HEROKU_API_KEY}}
+          email: "tpham3@trinity.edu"
+          app_name: "sw-dnd-trinity"
+          heroku_branch: "master"
+          subfolder: "dist-staging" # for staging process in Heroku, wll change to "dist-prod" if production run 
