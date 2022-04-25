@@ -14,7 +14,7 @@ const MongoClient = require('mongodb').MongoClient;
 app.set('view engine', 'ejs')
 
 //Start up the local server
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log('listening on 3000')
 })  
 
