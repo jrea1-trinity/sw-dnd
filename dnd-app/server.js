@@ -60,6 +60,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     const Bob = new Character("Human", 18,10,10,10,10,10)
     console.log("Bob: ")
     console.log(Bob.str)    
+    const Sally = new Character("Dwarf", 15,15,15,15,15,15)
+    console.log("Sally :" + Sally.str)
 
     //Redirect back to '/'
     app.post('/races', (req, res) => {
@@ -73,12 +75,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
       //Render Method
       app.get('/', (req, res) => {
-        db.collection('Races').find().toArray()
-          .then(results => {
-            res.render('display.ejs', { races: results })
-            console.log(racesCollection)
-          })
-          .catch(/* ... */)
+        //db.collection('Races').find().toArray()
+          //.then(results => {
+            //res.render('display.ejs', { races: results })
+            //console.log(racesCollection)
+          //})
+          //.catch(/* ... */)
+          res.render('display.ejs', {Character: Bob , Character2: Sally});
       })
 
       app.get('/display', (req, res) => {
