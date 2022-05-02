@@ -29,4 +29,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "sw-dnd-trinity" #Must be unique in Heroku
           heroku_email: "tpham3@trinity.edu"
-          branch: "dev"
+          branch: "test-branch"
