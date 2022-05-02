@@ -19,3 +19,13 @@ jobs:
           npm i --save-dev mocha
           npm i --save-dev chai
           npm test
+  build:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "sw-dnd-trinity" #Must be unique in Heroku
+          heroku_email: "tpham3@trinity.edu"
