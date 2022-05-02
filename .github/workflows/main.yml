@@ -2,10 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [ main, pre-production ]
-  pull_request:
-    branches: [ main, pre-production ]
-
+    branches: [ main, pre-production, test-branch ]
+  
 jobs:
   test:
     name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
