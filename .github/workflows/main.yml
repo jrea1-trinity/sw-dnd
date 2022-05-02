@@ -6,22 +6,16 @@ on:
   
 jobs:
   test:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: ['8', '10', '12']
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-
+    name: Update things
+    runs-on: ubutu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node_version }}
+      - name: node Mocha & Chai update & test
         uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node_version }}
 
       - name: mocha install, build and test
         run: |
           npm i --global mocha
           npm i --save-dev mocha
-          mocha
+          npm i --save-dev chai
+          npm test
