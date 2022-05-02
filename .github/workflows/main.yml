@@ -20,9 +20,8 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: npm install, build and test
+      - name: mocha install, build and test
         run: |
-          npm install
-          npm run build --if-present
-          npm test
-
+          npm i --global mocha
+          npm i --save-dev mocha
+          mocha
