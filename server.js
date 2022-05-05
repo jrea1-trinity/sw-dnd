@@ -66,10 +66,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       })
 
       app.post('/condense', (req,res) => {
-        const newChar = new Character("Human", req.body.str,req.body.dex,req.body.con,req.body.int,req.body.wis,req.body.cha);
+        console.log(req.body)
+        const newChar = new Character("Bob", 1, "Human", "Fighter", req.body.str,req.body.dex,req.body.con,req.body.int,req.body.wis,req.body.cha);
+        setTimeout(function() {
         console.log("condense post request");
         res.render('display.ejs', {Character: newChar});
-      })
+      }, 3000);
+    })
                   
   })
   .catch(error => console.error(error))
