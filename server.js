@@ -78,7 +78,12 @@ Character = class {
         self.chaBon = self.cha / 2 - 5
       })
 
-      
+      const classCollection = client.db('DnDRules').collection('Classes')
+      console.log("looking for class: ", className)
+      classCollection.findOne({name: className}, function(err, result) {
+          if (err) throw err;
+          console.log("class found: ", result.name)
+      })
     })
     // this.race = new Race("NoRace");
     // this.race.getRace(raceName)
