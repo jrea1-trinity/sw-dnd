@@ -41,9 +41,9 @@
     <!-- Section for Dealing with Stats -->
     <div class="child">
         <h2> Input Your Stats </h2>
-        <form action="/stats" method="POST">
+        <form action="/condense" method="POST">
             <style>
-                input[type=text] {
+                input[type=number] {
                     width: 20%;
                     padding: 12px 5px;
                     box-sizing: border-box;
@@ -56,17 +56,18 @@
                 }
             </style>
             <label for="str">STR</label>
-            <input type="text" name="str"/>
+            <input type="number" name="str"/>
             <label for="dex">DEX</label>
-            <input type="text" name="dex"/>
+            <input type="number" name="dex"/>
             <label for="con">CON</label>
-            <input type="text" name="con"/>
+            <input type="number" name="con"/>
             <label for="int">INT</label>
-            <input type="text" name="int"/>
+            <input type="number" name="int"/>
             <label for="wis">WIS</label>
-            <input type="text" name="wis"/>
+            <input type="number" name="wis"/>
             <label for="cha">CHA</label>
-            <input type="text" name="cha"/>
+            <input type="number" name="cha"/>
+            <button type="submit">Submit</button>
         </form>
     </div>
 
