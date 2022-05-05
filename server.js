@@ -37,14 +37,14 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // console.log("Sally :" + Sally.str)
 
     //Redirect back to '/'
-    app.post('/races', (req, res) => {
-        racesCollection.insertOne(req.body)
-          .then(result => {
-            // console.log(result)
-            res.redirect('/')
-        })
-          .catch(error => console.error(error))
-      })
+    // app.post('/races', (req, res) => {
+    //     racesCollection.insertOne(req.body)
+    //       .then(result => {
+    //         console.log(result)
+    //         res.redirect('/')
+    //     })
+    //       .catch(error => console.error(error))
+    //   })
 
       //Render Method
       app.get('/', (req, res) => {
@@ -57,22 +57,22 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           //res.render('display.ejs', {Character: Bob , Character2: Sally});
       })
 
-      app.get('/display', (req, res) => {
-        db.collection('Races'.find().toArray()
-          .then(results => {
-            const raceName = "Human";
-
-          }))
-      })
-
-      app.post('/condense', (req,res) => {
+      app.post('/display', (req,res) => {
         console.log(req.body)
         const newChar = new Character(req.body.charName, 1, req.body.raceDrop, req.body.classDrop, req.body.str,req.body.dex,req.body.con,req.body.int,req.body.wis,req.body.cha);
         setTimeout(function() {
           console.log("condense post request");
           res.render('display.ejs', {Character: newChar});
         }, 3000);
-    })
+      })
+
+      // app.get('/display', (req, res) => {
+      //   db.collection('Races'.find().toArray()
+      //     .then(results => {
+      //       const raceName = "Human";
+
+      //     }))
+      // })
                   
   })
   .catch(error => console.error(error))
