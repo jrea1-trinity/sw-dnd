@@ -11,14 +11,25 @@
 <body>
     <h1>Your Character Sheet</h1>
     <tr>
-        <!-- <th>Hit Die</th>
-        <th><%= Character.hitDice %></th> -->
-        <th>Race</th>
+        <th><%= Character.charName %></th>
+        <br>
+        <th>Level: </th>
+        <th><%= Character.level %></th>
+        <br>
+        <th>Race: </th>
         <th><%= Character.raceName %></th>
-        <!-- <th>ConBon</th>
-        <th><%= Character.conBon %></th>
-        <th>HP</th>
-        <th><%= Character.hp %></th> -->
+        <br>
+        <th>Class:</th>
+        <th><%= Character.className %></th>
+        <br>
+        <th>AC: </th>
+        <th><%= Character.ac %></th>
+        <br>
+        <th>HP: </th>
+        <th><%= Character.hp %></th>
+        <br>
+        <th>Proficiency Bonus: </th>
+        <th><%= Character.profBon %></th>
     </tr>
     <table border="10" cellpadding="10" cellspacing="5">
         <tr>
