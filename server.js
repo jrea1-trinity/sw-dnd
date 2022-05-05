@@ -30,7 +30,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     const racesCollection = db.collection('Races')
     const classCollection = db.collection('Classes')
 
-
     const Bob = new Character("Bob", 6, "Human", "Sorcerer", 10,11,12,13,14,15)
     // console.log("Bob: ")
     // console.log(Bob.hp)    
@@ -49,13 +48,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
       //Render Method
       app.get('/', (req, res) => {
-        //db.collection('Races').find().toArray()
-          //.then(results => {
-            //res.render('display.ejs', { races: results })
-            //console.log(racesCollection)
-          //})
-          //.catch(/* ... */)
-          res.render('display.ejs', {Character: Bob , Character2: Sally});
+        db.collection('Races').find().toArray()
+          .then(results => {
+            res.render('generateCharacter.ejs', { races: results })
+            console.log(racesCollection)
+          })
+          .catch(/* ... */)
+          //res.render('display.ejs', {Character: Bob , Character2: Sally});
       })
 
       app.get('/display', (req, res) => {
@@ -64,6 +63,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             const raceName = "Human";
 
           }))
+      })
+
+      app.post('/condense', (req,res) => {
+        const newChar = new Character("Human", req.body.str,req.body.dex,req.body.con,req.body.int,req.body.wis,req.body.cha);
+        console.log("condense post request");
+        res.render('display.ejs', {Character: newChar});
       })
                   
   })

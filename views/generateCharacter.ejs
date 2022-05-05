@@ -21,6 +21,23 @@
           display: block;
           width: 100px;
         }
+        input[type=number] {
+                    width: 20%;
+                    padding: 12px 5px;
+                    box-sizing: border-box;
+                    border: 2px solid black;
+                    border-radius: 4px;
+                    display: block;
+                    margin:2px 0 20px 10px;
+                    font-size: 20px;
+                    text-align: center;
+                    -webkit-appearance: none;
+                }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
     <meta charset="UTF-8" />
     <title>Interactive DnD Character Sheet</title>
@@ -41,32 +58,26 @@
     <!-- Section for Dealing with Stats -->
     <div class="child">
         <h2> Input Your Stats </h2>
-        <form action="/stats" method="POST">
-            <style>
-                input[type=text] {
-                    width: 20%;
-                    padding: 12px 5px;
-                    box-sizing: border-box;
-                    border: 2px solid black;
-                    border-radius: 4px;
-                    display: block;
-                    margin:2px 0 20px 10px;
-                    font-size: 20px;
-                    text-align: center;
-                }
-            </style>
+        <form action="/condense" method="POST">
             <label for="str">STR</label>
-            <input type="text" name="str"/>
+            <input type="number" name="str" max="20" min="1" required/>
             <label for="dex">DEX</label>
-            <input type="text" name="dex"/>
+            <input type="number" name="dex" max="20" min="1" required/>
             <label for="con">CON</label>
-            <input type="text" name="con"/>
+            <input type="number" name="con" max="20" min="1" required/>
             <label for="int">INT</label>
-            <input type="text" name="int"/>
+            <input type="number" name="int" max="20" min="1" required/>
             <label for="wis">WIS</label>
-            <input type="text" name="wis"/>
+            <input type="number" name="wis" max="20" min="1" required/>
             <label for="cha">CHA</label>
-            <input type="text" name="cha"/>
+            <input type="number" name="cha" max="20" min="1" required/>
+            <label for="raceDrop">Choose a Race</label>
+            <select name="raceDrop" id="raceDrop" class="dropdown">
+              <option value="blank">-----</option>
+              <option value="human">Human</option>
+              <option value="dwarf">Dwarf</option>
+            </select>
+            <button type="submit">Submit</button>
         </form>
     </div>
 
@@ -74,14 +85,15 @@
     <div class="child">
         <h2> Races </h2>
 
-        <div>
+        <!-- <div>
           <label for="raceDrop">Choose a Race</label>
           <select name="raceDrop" id="raceDrop" class="dropdown">
             <option value="blank">-----</option>
             <option value="human">Human</option>
             <option value="dwarf">Dwarf</option>
           </select>
-      </div>
+        </div> -->
+
         <!-- <ul class="races"> -->
         <!-- Loop through races -->
         <!-- <% for(var i = 0; i < races.length; i++) {%> -->
