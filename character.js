@@ -21,12 +21,13 @@ Character = class {
           if (err) throw err;
           // console.log("race found: ", result.race)
           self.raceName = result.race
-          self.str = str + result.asi[0]
-          self.dex = dex + result.asi[1]
-          self.con = con + result.asi[2]
-          self.int = int + result.asi[3]
-          self.wis = wis + result.asi[4]
-          self.cha = cha + result.asi[5]
+          console.log(result)
+          self.str = +str + +result.asi[0]
+          self.dex = +dex + +result.asi[1]
+          self.con = +con + +result.asi[2]
+          self.int = +int + +result.asi[3]
+          self.wis = +wis + +result.asi[4]
+          self.cha = +cha + +result.asi[5]
           self.strBon = Math.floor(self.str / 2) - 5
           self.dexBon = Math.floor(self.dex / 2) - 5
           self.conBon = Math.floor(self.con / 2) - 5
