@@ -1,0 +1,130 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--CSS styling for the entire HTML file (body), and specific CSS classes you can assign-->
+    <style>
+        body {
+          background-color: rgb(70, 70, 70);
+          color: white;
+          /* text-align: center; */
+          font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .child {
+          display: inline-block;
+          vertical-align: top;
+        }
+        .center {
+          text-align: center;
+        }
+        .dropdown {
+          display: block;
+          width: 100px;
+        }
+        input[type=number] {
+                    width: 20%;
+                    padding: 12px 5px;
+                    box-sizing: border-box;
+                    border: 2px solid black;
+                    border-radius: 4px;
+                    display: block;
+                    margin:2px 0 20px 10px;
+                    font-size: 20px;
+                    text-align: center;
+                    -webkit-appearance: none;
+                }
+        input[type=text] {
+            width: 100%;
+            padding: 12px 5px;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 4px;
+            /* display: block; */
+            margin:2px 0 20px 10px;
+            font-size: 20px;
+            text-align: center;
+            -webkit-appearance: none;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Interactive DnD Character Sheet</title>
+  </head>
+
+  <body>
+    <h1 class="center">Generate Your Character</h1>
+
+    <!-- Form for inputing all character data -->
+    <div>
+        <h2> Input Your Stats </h2>
+        <form action="/display" method="POST">
+
+            <!-- Inputs for Character Name -->
+            <label for="charName">Character Name</label>
+            <input type="text" name="charName"> 
+
+            <!-- Dropdown menu for selecting Race -->
+            <label for="raceDrop">Choose a Race</label>
+            <select name="raceDrop" id="raceDrop" class="dropdown" required>
+              <option value="Human">Human</option>
+              <option value="Dwarf">Dwarf</option>
+              <option value="Dragonborn">Dragonborn</option>
+              <option value="Elf">Elf</option>
+              <option value="Half Elf">Half Elf</option>
+              <option value="Halfling">Halfling</option>
+              <option value="Half-Orc">Half-Orc</option>
+              <option value="Tiefling">Tiefling</option>
+              <option value="Dwarf">Dwarf</option>
+            </select>
+
+            <!-- Dropdown menu for selecting Class -->
+            <label for="classDrop">Choose a Class</label>
+            <select name="classDrop" id="classDrop" class="dropdown" required>
+              <!-- <option value="Artificer">Artificer</option> -->
+              <option value="Barbarian">Barbarian</option>
+              <option value="Bard">Bard</option>
+              <option value="Cleric">Cleric</option>
+              <option value="Druid">Druid</option>
+              <option value="Fighter">Fighter</option>
+              <option value="Monk">Monk</option>
+              <option value="Paladin">Paladin</option>
+              <option value="Ranger">Ranger</option>
+              <option value="Rogue">Rogue</option>
+              <option value="Sorcerer">Sorcerer</option>
+              <option value="Warlock">Warlock</option>
+              <!-- <option value="Wizard">Wizard</option> -->
+            </select>          
+
+            <!-- Input boxes for Stats -->
+            <label for="str">STR</label>
+            <input type="number" name="str" max="20" min="1" required/>
+            <label for="dex">DEX</label>
+            <input type="number" name="dex" max="20" min="1" required/>
+            <label for="con">CON</label>
+            <input type="number" name="con" max="20" min="1" required/>
+            <label for="int">INT</label>
+            <input type="number" name="int" max="20" min="1" required/>
+            <label for="wis">WIS</label>
+            <input type="number" name="wis" max="20" min="1" required/>
+            <label for="cha">CHA</label>
+            <input type="number" name="cha" max="20" min="1" required/>
+
+            <!-- Submit button for all character information -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Section for Selection / Dealing with Races -->
+    <!-- <div class="child">
+        <h2> Races </h2>
+
+    </div> -->
+    
+  </body>
+</html>
+
+
