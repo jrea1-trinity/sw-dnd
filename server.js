@@ -14,10 +14,10 @@ const connectionString = 'mongodb+srv://acarlso1:FSSZfskcR6EPoMzq@sw-dnd.s9vcx.m
 const connection = MongoClient.connect(connectionString, { useNewUrlParser: true });
 
 
-const server = http.createServer(app);
+//const server = http.createServer(app);
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname,'./views')));
+//app.use(bodyParser.urlencoded({extended: false}));
+//app.use(express.static(path.join(__dirname,'./views')));
 
 
 //Sets up the EJS engine to work the non-static stuff
