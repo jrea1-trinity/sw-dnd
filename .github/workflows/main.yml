@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, pre-production, test-branch ]
+  
+jobs:
+  test:
+    name: Update things
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: node Mocha & Chai update & test
+        uses: actions/setup-node@v1
+
+      - name: mocha install, build and test
+        run: |
+          npm i --global mocha
+          npm i --save-dev mocha
+          npm i --save-dev chai
+          npm test
