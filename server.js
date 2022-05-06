@@ -7,19 +7,27 @@ console.log('May Node be with you')
 const express = require('express');
 const bodyParser= require('body-parser');
 var Character = require('./character');
+
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const connectionString = 'mongodb+srv://acarlso1:FSSZfskcR6EPoMzq@sw-dnd.s9vcx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const connection = MongoClient.connect(connectionString, { useNewUrlParser: true });
 
 
+const server = http.createServer(app);
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname,'./views')));
+
+
 //Sets up the EJS engine to work the non-static stuff
 app.set('view engine', 'ejs')
+
 
 //Start up the local server
 app.listen(process.env.PORT || 3000, function() {
     console.log('listening on 3000')
-})  
+});
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -36,16 +44,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     const Sally = new Character("Sally", 3, "Dwarf", "Ranger", 15,15,15,15,15,15)
     // console.log("Sally :" + Sally.str)
 
-    //Redirect back to '/'
-    // app.post('/races', (req, res) => {
-    //     racesCollection.insertOne(req.body)
-    //       .then(result => {
-    //         console.log(result)
-    //         res.redirect('/')
-    //     })
-    //       .catch(error => console.error(error))
-    //   })
-
+    
       //Render Method
       app.get('/', (req, res) => {
         db.collection('Races').find().toArray()
@@ -65,14 +64,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           res.render('display.ejs', {Character: newChar});
         }, 3000);
       })
-
-      // app.get('/display', (req, res) => {
-      //   db.collection('Races'.find().toArray()
-      //     .then(results => {
-      //       const raceName = "Human";
-
-      //     }))
-      // })
                   
   })
   .catch(error => console.error(error))
