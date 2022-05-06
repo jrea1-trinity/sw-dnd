@@ -22,28 +22,31 @@
           width: 100px;
         }
         input[type=number] {
-                    width: 20%;
-                    padding: 12px 5px;
-                    box-sizing: border-box;
-                    border: 2px solid black;
-                    border-radius: 4px;
-                    display: block;
-                    margin:2px 0 20px 10px;
-                    font-size: 20px;
-                    text-align: center;
-                    -webkit-appearance: none;
-                }
-        input[type=text] {
-            width: 100%;
+            width: 10%;
             padding: 12px 5px;
             box-sizing: border-box;
             border: 2px solid black;
             border-radius: 4px;
-            /* display: block; */
-            margin:2px 0 20px 10px;
+            display: block;
+            margin:2px 0 10px 3px;
             font-size: 20px;
             text-align: center;
             -webkit-appearance: none;
+                }
+        input[type=text] {
+            width: 80%;
+            padding: 12px 5px;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 4px;
+            display: block;
+            margin:2px 0 10px 3px;
+            font-size: 20px;
+            /* text-align: center; */
+            -webkit-appearance: none;
+          }
+        label {
+            text-align: center;
         }
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -60,61 +63,66 @@
 
     <!-- Form for inputing all character data -->
     <div>
-        <h2> Input Your Stats </h2>
+        <h2> Input Your Character Info </h2>
         <form action="/display" method="POST">
+            <div style="width:50%; left:10px; height:100; position:fixed; overflow-x:hidden; top:150px;">
+                <!-- Inputs for Character Name -->
+                <label for="charName">Character Name</label>
+                <input type="text" name="charName"> 
 
-            <!-- Inputs for Character Name -->
-            <label for="charName">Character Name</label>
-            <input type="text" name="charName"> 
+                <!-- Dropdown menu for selecting Race -->
+                <label for="raceDrop">Choose a Race</label>
+                <select name="raceDrop" id="raceDrop" class="dropdown" required>
+                  <option value="Human">Human</option>
+                  <option value="Dwarf">Dwarf</option>
+                  <option value="Dragonborn">Dragonborn</option>
+                  <option value="Elf">Elf</option>
+                  <option value="Half Elf">Half Elf</option>
+                  <option value="Halfling">Halfling</option>
+                  <option value="Half-Orc">Half-Orc</option>
+                  <option value="Tiefling">Tiefling</option>
+                  <option value="Dwarf">Dwarf</option>
+                </select>
 
-            <!-- Dropdown menu for selecting Race -->
-            <label for="raceDrop">Choose a Race</label>
-            <select name="raceDrop" id="raceDrop" class="dropdown" required>
-              <option value="Human">Human</option>
-              <option value="Dwarf">Dwarf</option>
-              <option value="Dragonborn">Dragonborn</option>
-              <option value="Elf">Elf</option>
-              <option value="Half Elf">Half Elf</option>
-              <option value="Halfling">Halfling</option>
-              <option value="Half-Orc">Half-Orc</option>
-              <option value="Tiefling">Tiefling</option>
-              <option value="Dwarf">Dwarf</option>
-            </select>
+                <!-- Dropdown menu for selecting Class -->
+                <label for="classDrop">Choose a Class</label>
+                <select name="classDrop" id="classDrop" class="dropdown" required>
+                  <option value="Barbarian">Barbarian</option>
+                  <option value="Bard">Bard</option>
+                  <option value="Cleric">Cleric</option>
+                  <option value="Druid">Druid</option>
+                  <option value="Fighter">Fighter</option>
+                  <option value="Monk">Monk</option>
+                  <option value="Paladin">Paladin</option>
+                  <option value="Ranger">Ranger</option>
+                  <option value="Rogue">Rogue</option>
+                  <option value="Sorcerer">Sorcerer</option>
+                  <option value="Warlock">Warlock</option>
+                  <option value="Wizard">Wizard</option>
+                </select>
+            </div>
+          
+            <div style="width:50%; right:-200px; height:100; position:fixed; overflow-x:hidden; top:80px;">
+                <h2>Input Your Stats</h2>
+                <!-- Input boxes for Stats -->
+                <label for="str">STR</label>
+                <input type="number" name="str" max="20" min="1" required/>
+                <label for="dex">DEX</label>
+                <input type="number" name="dex" max="20" min="1" required/>
+                <label for="con">CON</label>
+                <input type="number" name="con" max="20" min="1" required/>
+                <label for="int">INT</label>
+                <input type="number" name="int" max="20" min="1" required/>
+                <label for="wis">WIS</label>
+                <input type="number" name="wis" max="20" min="1" required/>
+                <label for="cha">CHA</label>
+                <input type="number" name="cha" max="20" min="1" required/>
 
-            <!-- Dropdown menu for selecting Class -->
-            <label for="classDrop">Choose a Class</label>
-            <select name="classDrop" id="classDrop" class="dropdown" required>
-              <!-- <option value="Artificer">Artificer</option> -->
-              <option value="Barbarian">Barbarian</option>
-              <option value="Bard">Bard</option>
-              <option value="Cleric">Cleric</option>
-              <option value="Druid">Druid</option>
-              <option value="Fighter">Fighter</option>
-              <option value="Monk">Monk</option>
-              <option value="Paladin">Paladin</option>
-              <option value="Ranger">Ranger</option>
-              <option value="Rogue">Rogue</option>
-              <option value="Sorcerer">Sorcerer</option>
-              <option value="Warlock">Warlock</option>
-              <!-- <option value="Wizard">Wizard</option> -->
-            </select>          
+                <!-- Submit button for all character information -->
+                <button type="submit">Submit</button>
+            </div>
 
-            <!-- Input boxes for Stats -->
-            <label for="str">STR</label>
-            <input type="number" name="str" max="20" min="1" required/>
-            <label for="dex">DEX</label>
-            <input type="number" name="dex" max="20" min="1" required/>
-            <label for="con">CON</label>
-            <input type="number" name="con" max="20" min="1" required/>
-            <label for="int">INT</label>
-            <input type="number" name="int" max="20" min="1" required/>
-            <label for="wis">WIS</label>
-            <input type="number" name="wis" max="20" min="1" required/>
-            <label for="cha">CHA</label>
-            <input type="number" name="cha" max="20" min="1" required/>
 
-            <!-- Submit button for all character information -->
-            <button type="submit">Submit</button>
         </form>
     </div>
 
