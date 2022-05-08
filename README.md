@@ -1,10 +1,8 @@
 <h1>Running the App for Testing</h1>
 
 <h2>How to run the project for local testing:</h2>
-1) Make sure you are in the "dnd-app" folder
-
-2) Use the console command, "npm run dev"
-  
+1) Make sure you are in the "dnd-app" folder <br>
+2) Use the console command, "npm run dev" <br>
 3) Go to your internet browser and open http://localhost:3000/
   
 
