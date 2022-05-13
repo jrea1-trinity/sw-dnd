@@ -27,16 +27,10 @@
             border-color: grey;
         }
     </style>
-
     <script>
-        //function that takes in a check box and returns true if it is clicked, false if not
-        /*function checkProf(id) {
-            if(check == true) {
-                return true;
-            }
-            else false;
-        }*/
+        const localVal = '<%= JSON.stringify(Character) %>';
     </script>
+    <script src="display.js"></script>
     <title>Character Sheet</title>
     
 </head>
@@ -97,86 +91,10 @@
                     color: gray; */
                 }
             </style>
-            <table border="10" cellpadding="10" cellspacing="5">
+            <table border="10" cellpadding="10" cellspacing="5" id="skillTable">
                 <tr>
                     <th>Skill</th>
                     <th>Modifier</th>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Acrobatics Proficiency"> Acrobatics (Dex)</td>
-                    <td><%= Character.dexBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Animal Handling Proficiency"> Animal Handling (Wis)</td>
-                    <td><%= Character.wisBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Arcana Proficiency"> Arcana (Wis)</td>
-                    <td><%= Character.wisBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Athletics Proficiency"> Athletics (Str)</td>
-                    <td><%= Character.strBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Acrobatics Proficiency"> Acrobatics (Dex)</td>
-                    <td><%= Character.dexBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Deception Proficiency"> Deception (Cha)</td>
-                    <td><%= Character.chaBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="History Proficiency"> History (Int)</td>
-                    <td><%= Character.intBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Insight Proficiency"> Insight (Wis)</td>
-                    <td><%= Character.wisBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Intimidation Proficiency"> Intimidation (Cha)</td>
-                    <td><%= Character.chaBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Investigation Proficiency"> Investigation (Int)</td>
-                    <td><%= Character.intBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Medicine Proficiency"> Medicine (Wis)</td>
-                    <td><%= Character.wisBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Nature Proficiency"> Nature (Int)</td>
-                    <td><%= Character.intBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Perception Proficiency"> Perception (Wis)</td>
-                    <td><%= Character.wisBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Performance Proficiency"> Performance (Cha)</td>
-                    <td><%= Character.chaBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Persuasion Proficiency"> Persuasion (Cha)</td>
-                    <td><%= Character.chaBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Religion Proficiency"> Religion (Int)</td>
-                    <td><%= Character.intBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Sleight of Hand Proficiency"> Sleight of Hand (Dex)</td>
-                    <td><%= Character.dexBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Stealth Proficiency"> Stealth (Dex)</td>
-                    <td><%= Character.dexBon %></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="prof" value="Survival Proficiency"> Survival (Wis)</td>
-                    <td><%= Character.wisBon %></td>
                 </tr>
             </table>
         </div>
