@@ -38,10 +38,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     const racesCollection = db.collection('Races')
     const classCollection = db.collection('Classes')
 
-    const Bob = new Character("Bob", 6, "Human", "Sorcerer", 10,11,12,13,14,15)
+    //const Bob = new Character("Bob", 6, "Human", "Sorcerer", 10,11,12,13,14,15)
     // console.log("Bob: ")
     // console.log(Bob.hp)    
-    const Sally = new Character("Sally", 3, "Dwarf", "Ranger", 15,15,15,15,15,15)
+    //const Sally = new Character("Sally", 3, "Dwarf", "Ranger", 15,15,15,15,15,15)
     // console.log("Sally :" + Sally.str)
 
     
@@ -58,11 +58,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
       app.post('/display', (req,res) => {
         console.log(req.body)
-        const newChar = new Character(req.body.charName, 1, req.body.raceDrop, req.body.classDrop, req.body.str,req.body.dex,req.body.con,req.body.int,req.body.wis,req.body.cha);
-        setTimeout(function() {
-          console.log("condense post request");
-          res.render('display.ejs', {Character: newChar});
-        }, 3000);
+        const callback = (newChar) => res.render('display.ejs', {Character: newChar});
+        const newChar = new Character(callback, req.body.charName, req.body.level, req.body.genderDrop, req.body.raceDrop, req.body.classDrop, req.body.alignDrop, req.body.str,req.body.dex,req.body.con,req.body.int,req.body.wis,req.body.cha);
       })
                   
   })
