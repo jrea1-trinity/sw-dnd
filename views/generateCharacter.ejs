@@ -71,6 +71,18 @@
                 <label for="charName">Character Name</label>
                 <input type="text" name="charName"> 
 
+                <!-- Inputs for Character Name -->
+                <label for="level">Character Level</label>
+                <input type="number" name="level"> 
+
+                <!-- Dropdown menu for selecting Gender -->
+                <label for="genderDrop">Choose a Gender</label>
+                <select name="genderDrop" id="genderDrop" class="dropdown" required>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Nonbinary">Nonbinary</option>
+                </select>
+                
                 <!-- Dropdown menu for selecting Race -->
                 <label for="raceDrop">Choose a Race</label>
                 <select name="raceDrop" id="raceDrop" class="dropdown" required>
@@ -100,6 +112,21 @@
                   <option value="Warlock">Warlock</option>
                   <option value="Wizard">Wizard</option>
                 </select>
+
+                <!-- Dropdown menu for selecting Alignment -->
+                <label for="alignDrop">Choose an Alignment</label>
+                <select name="alignDrop" id="alignDrop" class="dropdown" required>
+                  <option value="Lawful Good">Lawful Good</option>
+                  <option value="Lawful Neutral">Lawful Neutral</option>
+                  <option value="Lawful Evil">Lawful Evil</option>
+                  <option value="Neutral Good">Neutral Good</option>
+                  <option value="True Neutral">True Neutral</option>
+                  <option value="Neutral Evil">Neutral Evil</option>
+                  <option value="Chaotic Good">Chaotic Good</option>
+                  <option value="Chaotic Neutral">Chaotic Neutral</option>
+                  <option value="Chaotic Evil">Chaotic Evil</option>
+                </select>
+
             </div>
           
             <div style="width:50%; right:-200px; height:100; position:fixed; overflow-x:hidden; top:80px;">

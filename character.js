@@ -4,16 +4,18 @@ const connection = MongoClient.connect(connectionString, { useNewUrlParser: true
 
 //This is the Character class. It holds all the information about a given character given user input and database access
 class Character {
-    constructor(charName, level, raceName, className, str, dex, con, int, wis, cha) {
+    constructor(callback, charName, level, gender, raceName, className, align, str, dex, con, int, wis, cha) {
       this.charName = charName;
       this.level = level;
+      this.gender = gender;
+      this.align = align;
       this.str = str;
       this.dex = dex;
       this.con = con;
       this.int = int;
       this.wis = wis;
       this.cha = cha;
-
+      this.callback = callback;
       //this connects us to the client
       connection.then(client => {
         //Reads in the Races Database and assigns the values to the character class
@@ -48,6 +50,8 @@ class Character {
               this.ac = 10 + this.dexBon;
               this.hp = this.level * (Math.ceil(this.hitDie / 2 + 1) + this.conBon);
               this.profBon = Math.floor((this.level - 1) / 4) + 2;
+              console.log(this);
+              this.callback(this);
           })
         })
       })
