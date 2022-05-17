@@ -2,31 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <style>
         body {
-            overflow: scroll;
             background-image: url(/images/map.png);
             background-size: cover;
             background-repeat: no-repeat;
-            color: white;
-          /* text-align: center; */
             font-family:Verdana, Geneva, Tahoma, sans-serif;
-        }
-        container{
-            display: flex;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            flex-direction: row;
+            color: white;
         }
         table {
-            display: flex;
-            margin: 1rem;
-            text-align: center;
+            color: white;
             border-style: solid;
             border-collapse: collapse;
-            border-color: rgb(52, 46, 40);
-            border-width: 2px;
-            background-color: rgba(52,46,46,0.5);
+            border-color: rgb(29, 21, 11);
+            border-width: 3px;
+            background-color: rgba(78, 65, 49, 0.7);
+            text-align: center;
+            width: 100%;
+        }
+        th {
+            text-decoration: underline;
+            border: 1px solid ;
+            border-color: rgb(29, 21, 11);
+        }
+        tr {
+            border: 1px solid ;
+            border-color: rgb(29, 21, 11);
+        }
+        td {
+            border: 1px solid;
+            border-color: rgb(29, 21, 11);
         }
     </style>
     <script>
@@ -37,10 +45,82 @@
     
 </head>
 <body>
-    <h1>Your Character Sheet</h1>
-    <div class="container">
-        <div class="item">
-         <table border="10" cellpadding="10" cellspacing="10">
+    <h1 style="left:3rem; position: absolute;">Your Character Sheet</h1>
+    <div style="width:30%; left:3rem; position: absolute; overflow-x:hidden; top:100px;">
+            <table cellpadding="10" cellspacing="5">
+                <tr>
+                    <th>Stat</th>
+                    <th>Score</th>
+                    <th>Modifier</th>
+                    <th>Saving Throw</th>
+                </tr>
+                <tr>
+                    <td id="strName">Strength</td>
+                    <td><%= Character.str %></td>
+                    <td><%= Character.strBon %></td>
+                    <td id="strSaveVal">0</td>
+                </tr>
+                <tr>
+                    <td id="dexName">Dexterity</td>
+                    <td><%= Character.dex %></td>
+                    <td><%= Character.dexBon %></td>
+                    <td id="dexSaveVal">0</td>
+                </tr>
+                <tr>
+                    <td id="conName">Constitution</td>
+                    <td><%= Character.con %></td>
+                    <td><%= Character.conBon %></td>
+                    <td id="conSaveVal">0</td>
+                </tr>
+                <tr>
+                    <td id="intName">Intelligence</td>
+                    <td><%= Character.int %></td>
+                    <td><%= Character.intBon %></td>
+                    <td id="intSaveVal">0</td>
+                </tr>
+                <tr>
+                    <td id="wisName">Wisdom</td>
+                    <td><%= Character.wis %></td>
+                    <td><%= Character.wisBon %></td>
+                    <td id="wisSaveVal">0</td>
+                </tr>
+                <tr>
+                    <td id="chaName">Charisma</td>
+                    <td><%= Character.cha %></td>
+                    <td><%= Character.chaBon %></td>
+                    <td id="chaSaveVal">0</td>
+                </tr>
+            </table>
+            <p>*class saving throw</p>
+            <br>
+
+            <table border="10px" cellpadding="10" cellspacing="5" id="weaponTable">
+                <tr>
+                    <th>Weapon Proficiencies</th>
+                    <th>Armor Proficiencies</th>
+                </tr>
+                <tr>
+                    <td><%= Character.weaponProfs.join(", ")%></td>
+                    <td><%= Character.armorProfs.join(", ")%></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div style="left:35%; right: 35%; position:absolute; overflow:hidden; top:100px;">
+        <div>
+            <table border="10px" cellpadding="10" cellspacing="5" id="skillTable">
+                <tr>
+                    <th>Skill</th>
+                    <th>Modifier</th>
+                </tr>
+            </table>
+            <p>*class skill</p>
+        </div>
+    </div>
+    
+    
+    <div style="width:30%; right:3rem; position:absolute; top:100px;">
+        <table border="10px" cellpadding="10" cellspacing="10">
             <tr>
                 <th>Character Name</th>
                 <td><%= Character.charName %></td>
@@ -66,69 +146,36 @@
                 <td><%= Character.className %></td>
             </tr>
         </table>
-        </div>
-        <div class="item">
-        <table border="10" cellpadding="10" cellspacing="5">
-            <tr>
-                <th>Stat</th>
-                <th>Score</th>
-                <th>Modifier</th>
-            </tr>
-            <tr>
-                <td>Strength</td>
-                <td><%= Character.str %></td>
-                <td><%= Character.strBon %></td>
-            </tr>
-            <tr>
-                <td>Dexterity</td>
-                <td><%= Character.dex %></td>
-                <td><%= Character.dexBon %></td>
-            </tr>
-            <tr>
-                <td>Constitution</td>
-                <td><%= Character.con %></td>
-                <td><%= Character.conBon %></td>
-            </tr>
-            <tr>
-                <td>Intelligence</td>
-                <td><%= Character.int %></td>
-                <td><%= Character.intBon %></td>
-            </tr>
-            <tr>
-                <td>Wisdom</td>
-                <td><%= Character.wis %></td>
-                <td><%= Character.wisBon %></td>
-            </tr>
-            <tr>
-                <td>Charisma</td>
-                <td><%= Character.cha %></td>
-                <td><%= Character.chaBon %></td>
-            </tr>
-        </table>
-        </div>    
-        <div class="item">
-         <table border="10" cellpadding="10" id="skillTable" height="100vh">
-                <tr>
-                    <th>Skill</th>
-                    <th>Modifier</th>
-                </tr>
-        </table>
-        </div>
-       
-        <div class="item">
-        <table border="10" cellpadding="10" cellspacing="10">
+
+        <br>
+
+        <table border="10px" cellpadding="10px" cellspacing="10px">
             <tr>
                 <th>Armor Class</th>
                 <th>Hit Points</th>
                 <th>Proficiency Bonus</th>
+                <th>Initiative</th>
             </tr>
             <tr>
                 <td><%= Character.ac %></td>
                 <td><%= Character.hp %></td>
                 <td><%= Character.profBon %></td>
+                <td><%= Character.dexBon %></td>
             </tr>
         </table>
-    </div>
+
+        <br>
+
+        <table border="10px" cellpadding="10px" cellspacing="10px">
+            <tr>
+                <th>Strength Attack</th>
+                <th>Dexterity Attack</th>
+            </tr>
+            <tr>
+                <td><%= Character.strBon + Character.profBon %></td>
+                <td><%= Character.dexBon + Character.profBon %></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
