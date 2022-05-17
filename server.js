@@ -23,7 +23,7 @@ const connection = MongoClient.connect(connectionString, { useNewUrlParser: true
 //Sets up the EJS engine to work the non-static stuff
 app.set('view engine', 'ejs')
 
-app.use(express.static('scripts'));
+app.use(express.static('assets'));
 //Start up the local server
 app.listen(process.env.PORT || 3000, function() {
     console.log('listening on 3000')
