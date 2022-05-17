@@ -1,4 +1,5 @@
 const character = JSON.parse(localVal.replaceAll("&#34;", '"'));
+console.log(character);
 class Skill {
     //Holds data for displaying skills
     constructor(name, atr, prof) {
@@ -25,6 +26,19 @@ class Skill {
         this.updateDisplay();
     }
 }
+class Attribute {
+    constructor(abbrev, fullName, value, prof) {
+        this.abbrev = abbrev;
+        this.fullName = fullName;
+        this.value = value;
+        this.prof = prof;
+    }
+    getSavingThrow() {
+        let total = this.value;
+        if(this.prof) total += character.profBon;
+        return total;
+    }
+}
 
 function getSkills() {
     return [
@@ -48,9 +62,18 @@ function getSkills() {
         new Skill("Survival", "wis", false)
     ];
 }
-window.onload = () => {
+function getAttrs() {
+    return [
+        new Attribute("str", "Strength", character.strBon, character.savingThrows[0]),
+        new Attribute("dex", "Dexterity", character.dexBon, character.savingThrows[1]),
+        new Attribute("con", "Constitution", character.conBon, character.savingThrows[2]),
+        new Attribute("int", "Intelligence", character.intBon, character.savingThrows[3]),
+        new Attribute("wis", "Wisdom", character.wisBon, character.savingThrows[4]),
+        new Attribute("cha", "Intelligence", character.chaBon, character.savingThrows[5]),
+    ]
+}
+function loadSkillTable(skills) {
     const skillTable = document.getElementById("skillTable");
-    const skills = getSkills();
     skills.forEach(skill => {
         const rowElem = document.createElement("tr");
         skillTable.appendChild(rowElem);
@@ -64,7 +87,10 @@ window.onload = () => {
 
         checkTile.appendChild(checkBox);
         const text = document.createElement("span");
-        text.innerHTML = skill.name + " (" + skill.getAtr() + ") ";
+        let classProfMark = "";
+        if(character.skillProfOpts.map(s => s.toLowerCase()).includes(skill.name.toLowerCase()))
+            classProfMark = "*"
+        text.innerHTML = skill.name + " (" + skill.getAtr() + ")" + classProfMark;
         checkTile.appendChild(text);
 
         const modTile = document.createElement("td");
@@ -72,4 +98,26 @@ window.onload = () => {
         modTile.id = skill.name + " td";
         rowElem.appendChild(modTile);
     });
+}
+function loadAttrNames(attrs) {
+    attrs.forEach(attr => {
+        const tile = document.getElementById(attr.abbrev + "Name");
+        let classProfMark = "";
+        if(attr.prof)
+            classProfMark = "*";
+        tile.innerHTML = attr.fullName + classProfMark;
+    })
+}
+function loadSaves(attrs) {
+    attrs.forEach(attr => {
+        const tile = document.getElementById(attr.abbrev + "SaveVal");
+        tile.innerHTML = attr.getSavingThrow();
+    });
+}
+window.onload = () => {
+    const skills = getSkills();
+    const attrs = getAttrs();
+    loadSkillTable(skills);
+    loadAttrNames(attrs);
+    loadSaves(attrs);
 }

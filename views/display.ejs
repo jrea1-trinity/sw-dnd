@@ -35,73 +35,95 @@
     
 </head>
 <body>
-    <div style="width:30%; left:0px; height:100; position:fixed; overflow-x:hidden; top:0;">
-        <h1>Your Character Sheet</h1>
+    <h1>Your Character Sheet</h1>
+    <div style="width:30%; left:10px; position: absolute; overflow-x:hidden; top:100px;">
         <div>
                 <style>
                     table{
                         text-align: center;
                     }
                 </style>
-                <table border="10" cellpadding="10" cellspacing="5">
+                <table border="10px" cellpadding="10" cellspacing="5">
                     <tr>
                         <th>Stat</th>
                         <th>Score</th>
                         <th>Modifier</th>
+                        <th>Saving Throw</th>
                     </tr>
                     <tr>
-                        <td>Strength</td>
+                        <td id="strName">Strength</td>
                         <td><%= Character.str %></td>
                         <td><%= Character.strBon %></td>
+                        <td id="strSaveVal">0</td>
                     </tr>
                     <tr>
-                        <td>Dexterity</td>
+                        <td id="dexName">Dexterity</td>
                         <td><%= Character.dex %></td>
                         <td><%= Character.dexBon %></td>
+                        <td id="dexSaveVal">0</td>
                     </tr>
                     <tr>
-                        <td>Constitution</td>
+                        <td id="conName">Constitution</td>
                         <td><%= Character.con %></td>
                         <td><%= Character.conBon %></td>
+                        <td id="conSaveVal">0</td>
                     </tr>
                     <tr>
-                        <td>Intelligence</td>
+                        <td id="intName">Intelligence</td>
                         <td><%= Character.int %></td>
                         <td><%= Character.intBon %></td>
+                        <td id="intSaveVal">0</td>
                     </tr>
                     <tr>
-                        <td>Wisdom</td>
+                        <td id="wisName">Wisdom</td>
                         <td><%= Character.wis %></td>
                         <td><%= Character.wisBon %></td>
+                        <td id="wisSaveVal">0</td>
                     </tr>
                     <tr>
-                        <td>Charisma</td>
+                        <td id="chaName">Charisma</td>
                         <td><%= Character.cha %></td>
                         <td><%= Character.chaBon %></td>
+                        <td id="chaSaveVal">0</td>
+                    </tr>
+                </table>
+                <p>*class saving throw</p>
+                <br>
+
+                <table border="10px" cellpadding="10" cellspacing="5" id="weaponTable">
+                    <tr>
+                        <th>Weapon Proficiencies</th>
+                        <th>Armor Proficiencies</th>
+                    </tr>
+                    <tr>
+                        <td><%= Character.weaponProfs.join(", ")%></td>
+                        <td><%= Character.armorProfs.join(", ")%></td>
                     </tr>
                 </table>
             </div>
     </div>
-    <div style="width:40%; left:400px; height:100; position:fixed; overflow-x:scroll; top:0;">
+    <div style="left:32%; right: 32%; position:absolute; overflow:hidden; top:100px;">
         <div>
             <style>
                 table{
                     text-align: center;
+                    width: 100%;
                     /* background-color: white;
                     color: gray; */
                 }
             </style>
-            <table border="10" cellpadding="10" cellspacing="5" id="skillTable">
+            <table border="10px" cellpadding="10" cellspacing="5" id="skillTable">
                 <tr>
                     <th>Skill</th>
                     <th>Modifier</th>
                 </tr>
             </table>
+            <p>*class skill</p>
         </div>
     </div>
     
     
-    <div style="width:30%; right:0px; height:100; position:fixed; overflow-x:hidden; top:0;">
+    <div style="width:30%; right:10px; height:100; position:absolute; top:100px;">
         <!-- <style>
             #content {
                 position: relative;
@@ -117,7 +139,7 @@
             }
 
         </style> -->
-        <table border="10" cellpadding="10" cellspacing="10">
+        <table border="10px" cellpadding="10" cellspacing="10">
             <!-- <tr>
                 <th>Level and class</th>
                 <th>Background</th>
@@ -166,16 +188,31 @@
 
         <br>
 
-        <table border="10" cellpadding="10" cellspacing="10">
+        <table border="10px" cellpadding="10" cellspacing="10">
             <tr>
                 <th>Armor Class</th>
                 <th>Hit Points</th>
                 <th>Proficiency Bonus</th>
+                <th>Initiative</th>
             </tr>
             <tr>
                 <td><%= Character.ac %></td>
                 <td><%= Character.hp %></td>
                 <td><%= Character.profBon %></td>
+                <td><%= Character.dexBon %></td>
+            </tr>
+        </table>
+
+        <br>
+
+        <table border="10px" cellpadding="10" cellspacing="10">
+            <tr>
+                <th>Strength Attack</th>
+                <th>Dexterity Attack</th>
+            </tr>
+            <tr>
+                <td><%= Character.strBon + Character.profBon %></td>
+                <td><%= Character.dexBon + Character.profBon %></td>
             </tr>
         </table>
     </div>
