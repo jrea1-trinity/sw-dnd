@@ -69,7 +69,7 @@ function getAttrs() {
         new Attribute("con", "Constitution", character.conBon, character.savingThrows[2]),
         new Attribute("int", "Intelligence", character.intBon, character.savingThrows[3]),
         new Attribute("wis", "Wisdom", character.wisBon, character.savingThrows[4]),
-        new Attribute("cha", "Intelligence", character.chaBon, character.savingThrows[5]),
+        new Attribute("cha", "Charisma", character.chaBon, character.savingThrows[5]),
     ]
 }
 function loadSkillTable(skills) {
